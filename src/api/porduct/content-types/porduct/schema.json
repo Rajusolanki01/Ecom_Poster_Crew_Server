@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "porducts",
+  "info": {
+    "singularName": "porduct",
+    "pluralName": "porducts",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "desc": {
+      "type": "text",
+      "required": true
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "porducts"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "key": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "isTopPick": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
